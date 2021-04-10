@@ -125,6 +125,20 @@
                     <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
+                    <div class="links">
+                       <strong>Database Connected: </strong>
+                       @php
+                       try {
+                          $databaseName = \DB::connection()->getDatabaseName();
+                          echo $databaseName;
+                          # echo \DB::connection()->getDatabaseName();
+                          Log::info('Database name: '.$databaseName);
+                       } catch (\Exception $e) {
+                          echo 'None';
+                          Log::error($e);
+                       }
+                       @endphp
+                    </div>
                 </div>
             </div>
         </div>
