@@ -131,10 +131,22 @@
                        try {
                           $databaseName = \DB::connection()->getDatabaseName();
                           echo $databaseName;
-                          # echo \DB::connection()->getDatabaseName();
                           Log::info('Database name: '.$databaseName);
                        } catch (\Exception $e) {
                           echo 'None';
+                          Log::error($e);
+                       }
+                       @endphp
+                    </div>
+                    <div class="links">
+                       <strong>Cache: </strong>
+                       @php
+                       try {
+                          $check_cache = Cache::add('check', 'true', 10);;
+                          echo $check_cache;
+                          Log::info('Cache checked: '.$check_cache);
+                       } catch (\Exception $e) {
+                          echo 'false';
                           Log::error($e);
                        }
                        @endphp
