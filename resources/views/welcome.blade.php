@@ -142,11 +142,12 @@
                        <strong>Cache: </strong>
                        @php
                        try {
-                          $check_cache = Cache::add('check', 'true', 10);;
-                          echo $check_cache;
-                          Log::info('Cache checked: '.$check_cache);
+                          $check_cache = Cache::add('check', 'true', 10);
+                          $value = Cache::get('check', 'default');
+                          echo $value;
+                          Log::info('Cache checked, value is: '.$value);
                        } catch (\Exception $e) {
-                          echo 'false';
+                          echo 'error';
                           Log::error($e);
                        }
                        @endphp
