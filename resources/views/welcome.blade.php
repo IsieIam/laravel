@@ -126,12 +126,25 @@
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
                     <div class="links">
-                       <strong>Database Connected: </strong>
+                       <strong>Database name: </strong>
                        @php
                        try {
-                          $databaseName = \DB::connection()->getDatabaseName();
+                          $databaseName = DB::connection()->getDatabaseName();
                           echo $databaseName;
                           Log::info('Database name: '.$databaseName);
+                       } catch (\Exception $e) {
+                          echo 'None';
+                          Log::error($e);
+                       }
+                       @endphp
+                    </div>
+                    <div class="links">
+                       <strong>Database host: </strong>
+                       @php
+                       try {
+                          $databaseHost = DB::connection()->getConfig("host");
+                          echo $databaseHost;
+                          Log::info('Database host: '.$databaseHost);
                        } catch (\Exception $e) {
                           echo 'None';
                           Log::error($e);
