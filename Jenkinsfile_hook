@@ -1,0 +1,11 @@
+pipeline {
+  agent any
+  stages {
+    stage('Run job') {
+      steps{
+        echo 'build job'
+        build job: 'deploy', wait: true
+      }
+    }
+  }
+}
