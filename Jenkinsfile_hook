@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('Run job') {
       steps{
-        build job: 'deploy', wait: true
+        echo 'build job'
+        //build job: 'deploy', wait: true
       }
     }
   }
