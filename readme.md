@@ -11,6 +11,7 @@ composer create-project laravel/laravel example-app
 - Dockerfile состоит из двух частей: build зависимостей через composer и далее запуск в runtime с поддержкой memcached.
 - Инструкции по запуску и деплою можно найти здесь: https://github.com/IsieIam/laravel_deploy
 - Jenkinsfile - пример pipeline для Jenkins для билда образа - в данном примере не используется - непосредственно сборка и деплой вынесены в отдельный репо: https://github.com/IsieIam/laravel_deploy/tree/main . 
+- Jenkinsfile_hook - обходное решение с вызовом job с настройкой на репо отличным от того с которого уходит hook
 Осовные плюсы такого подхода - делой отдельно, ПО отдельно:
   - раздельная история изменений,
   - возможность использования разные flow ведения репо (например tbd деплоя и классический git flow для приложения)
